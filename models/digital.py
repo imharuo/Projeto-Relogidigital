@@ -13,7 +13,7 @@ window.title('Relógio Digital')
 window.geometry('440x180')
 window.configure(bg=back_color)
 window.resizable(width=False, height=False)
-pyglet.font.add_file('alarmclock.ttf')
+pyglet.font.add_file('digital-7.ttf')
 
 # time/hour
 
