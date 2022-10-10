@@ -13,7 +13,7 @@ window.title('Relógio Digital')
 window.geometry('440x180')
 window.configure(bg=back_color)
 window.resizable(width=False, height=False)
-pyglet.font.add_file('alarm clock.ttf')
+pyglet.font.add_file('alarmclock.ttf')
 
 # time/hour
 
@@ -26,6 +26,11 @@ def relogio():
     dia: tempo = tempo.day
     mes: tempo = tempo.strftime('%b')
     ano: tempo = tempo.strftime('%Y')
+    if dia_semana == 'Monday':
+        dia_semana = 'Segunda'
+
+    if mes == 'Oct':
+        mes = 'Out'
 
     l1.config(text=hora)
     l1.after(200, relogio)
@@ -33,12 +38,13 @@ def relogio():
 
 
 # labels time
-l1 = Label(window, text='hora atual', font='Arial 80', bg=back_color, fg=front_color)
+l1 = Label(window, text='hora atual', font=("digital-7 80"), bg=back_color, fg=front_color)
 l1.grid(row=0, column=0)
 
-l2 = Label(window, text='Segunda 10/10/2022', font='Arial 20', bg=back_color, fg=front_color)
+l2 = Label(window, text='Segunda 10/10/2022', font=("digital-7 20"), bg=back_color, fg=front_color)
 l2.grid(row=1, column=0, padx=5, sticky=NW)
+
+
 
 relogio()
 window.mainloop()
-
